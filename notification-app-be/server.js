@@ -1,6 +1,8 @@
 import express from "express"
 import dotenv from "dotenv";
 import { logger } from "../logging-middleware/src/index.js";
+import notificationRoutes from "./routes/notificationRoutes.js";
+
 dotenv.config()
 
 const app = express();

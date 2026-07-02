@@ -10,7 +10,7 @@ const priority = {
 };
 
 export const fetchTopNotifications = async () => {
-
+    console.log(process.env.TOKEN);
     const response = await axios.get
     (
         "http://4.224.186.213/evaluation-service/notifications",
@@ -20,7 +20,7 @@ export const fetchTopNotifications = async () => {
             }
         }
     );
-
+    //console.log(response.data);
     const notifications = response.data.notifications;
 
     const unreadNotifications = notifications.filter(notification => !notification.isRead);
