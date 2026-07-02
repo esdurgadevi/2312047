@@ -1,4 +1,5 @@
 export const CONSTANTS = {
+    LOG_API : 'http://4.224.186.213/evaluation-service/logs',
     stack : ['backend','frontend'],
     level : ['debug','info','warn','error','fatal'],
     package : {
