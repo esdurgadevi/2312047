@@ -1,31 +1,21 @@
 import axios from "axios";
-import { CONSTANTS } from "../log_constants";
 import dotenv from "dotenv";
+import { CONSTANTS } from "../log_constants.js";
 
 dotenv.config();
 
-export const loggerService = async (req,res)=>{
-    const { stack,level,package,message } = req.body;
-        
-    if(!stack || !level || !package || !message )
-    {
-        return res.status(400).json({"Error":"Provide all the parameters"});
-    }
-    if(!isValidParameters(stack,level,package))
-    {
-        return res.status(400).json({"Error":"Provide the Parameters as per the standards"});
-    }
+export const loggerService = async (payload) => {
 
-    const response = await axios.post
-    (
+    const response = await axios.post(
         CONSTANTS.LOG_API,
         payload,
         {
-            headers:
-            {
-                Authorization : `Bearer ${process.env.TOKEN}`
+            headers: {
+                Authorization: `Bearer ${process.env.TOKEN}`,
+                "Content-Type": "application/json"
             }
         }
-    )
-    return response;
-}
+    );
+
+    return response.data;
+};

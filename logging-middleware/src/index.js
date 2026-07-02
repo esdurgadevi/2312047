@@ -1,0 +1,1 @@
+export { loggerController as logger } from "./controllers/loggerController.js";
