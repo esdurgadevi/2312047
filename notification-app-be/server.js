@@ -23,6 +23,7 @@ app.post("/log", async (req, res) => {
     }
 
 });
+app.use("/api", notificationRoutes);
 
 app.listen(port,()=>{
     console.log(`Server run on ${port}`);
